@@ -1,4 +1,4 @@
-# 🛑 Hate Speech Classification using Deep Learning  
+# Hate Speech Classification using Deep Learning  
 
 ## 📖 Project Overview  
 This project focuses on classifying hate speech in text data related to US elections using deep learning models. The models evaluated include **LSTM, GRU, BERT, and DistilBERT**, and their performance is compared based on accuracy, precision, recall, and F1-score.  
