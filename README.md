@@ -1,55 +1,74 @@
-# Hate-speech-detection-US-Election-
-# Hate Speech Classification
+# 🛑 Hate Speech Classification using Deep Learning  
 
-## Overview
-This project focuses on classifying hate speech in textual data related to the US elections. We implemented and compared various deep learning models, including LSTM, GRU, BERT, and DistilBERT, to evaluate their performance in sentiment classification.
+## 📖 Project Overview  
+This project focuses on classifying hate speech in text data related to US elections using deep learning models. The models evaluated include **LSTM, GRU, BERT, and DistilBERT**, and their performance is compared based on accuracy, precision, recall, and F1-score.  
 
-## Dataset
-The dataset consists of text data labeled as either positive (1) or negative (0). It underwent preprocessing steps such as noise removal and tokenization before being used for training and evaluation.
+## 🚀 Features  
+- **Data Preprocessing Pipeline:** Tokenization, noise removal, and formatting for training.  
+- **Multiple Model Implementations:** LSTM, GRU, BERT, and DistilBERT.  
+- **Training and Optimization:** Hyperparameter tuning, dropout regularization, and learning rate scheduling.  
+- **Experiment Tracking:** Model performance metrics logged for analysis.  
+- **Deployment-Ready:** Trained models can be exported for real-world applications.  
 
-## Models Implemented
-We experimented with the following models:
-- **LSTM** (Long Short-Term Memory)
-- **GRU** (Gated Recurrent Unit)
-- **BERT** (Bidirectional Encoder Representations from Transformers)
-- **DistilBERT** (A lightweight version of BERT)
+## 🗂️ Dataset Details  
+- **Source:** Textual data related to the US elections.  
+- **Labels:** Binary classification – Positive (1) and Negative (0).  
+- **Preprocessing Steps:**  
+  - Text cleaning and tokenization  
+  - Stopword removal  
+  - Word embeddings (e.g., Word2Vec, GloVe, BERT embeddings)  
 
-## Results
-| Model       | Epochs | Validation Accuracy | Precision | Recall | F1-score |
-|------------|--------|---------------------|-----------|--------|----------|
-| LSTM       | 5      | 75.00%              | 0.64      | 0.60   | 0.60     |
-| GRU        | 5      | 75.00%              | 0.62      | 0.58   | 0.56     |
-| BERT       | 3      | 78.00%              | 0.76      | 0.77   | 0.76     |
-| DistilBERT | 6      | 82.53%              | 0.83      | 0.82   | 0.82     |
+## 🔧 Model Implementations  
 
-Among these models, **DistilBERT** demonstrated the best performance with an accuracy of **82.53%** and balanced precision-recall scores.
+| Model       | Framework | Validation Accuracy | Precision | Recall | F1-score |
+|------------|-----------|---------------------|-----------|--------|----------|
+| **LSTM**    | TensorFlow | 75.00%              | 0.64      | 0.60   | 0.60     |
+| **GRU**     | TensorFlow | 75.00%              | 0.62      | 0.58   | 0.56     |
+| **BERT**    | PyTorch    | 78.00%              | 0.76      | 0.77   | 0.76     |
+| **DistilBERT** | PyTorch | 82.53%              | 0.83      | 0.82   | 0.82     |
 
-## Installation
-To set up the project, follow these steps:
+## 🛠️ Model Training & Optimization  
+- **LSTM & GRU (TensorFlow)**  
+  - Embedding layer with pre-trained word vectors  
+  - Bidirectional layers for better context learning  
+  - Dropout and Batch Normalization  
+  - Adam optimizer with learning rate decay  
 
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/your-username/hate-speech-classification.git
-   cd hate-speech-classification
-   ```
-2. Create a virtual environment (optional but recommended):
-   ```sh
-   python -m venv venv
-   source venv/bin/activate  # On Windows use: venv\Scripts\activate
-   ```
-3. Install dependencies:
-   ```sh
-   pip install -r requirements.txt
-   ```
+- **BERT & DistilBERT (PyTorch)**  
+  - Hugging Face `transformers` library  
+  - Fine-tuning with custom classification head  
+  - Learning rate tuning with **linear warm-up**  
+  - Mixed-precision training with `torch.cuda.amp`  
 
-## Usage
-Run the training script:
-```sh
-python train.py --model <model_name>
-```
-Replace `<model_name>` with `LSTM`, `GRU`, `BERT`, or `DistilBERT`.
+## 📊 Experiment Tracking  
+- Results logged using **TensorBoard** for visualization.  
+- Model checkpoints saved for reproducibility.  
+- Hyperparameter tuning logs included.  
 
-## Contributions
-Contributions are welcome! Feel free to fork the repository and submit pull requests.
+## 🏆 Results & Findings  
+- Transformer-based models (BERT & DistilBERT) outperform LSTM/GRU.  
+- **DistilBERT** provides the best accuracy (82.53%) with fewer parameters.  
+- Using **pre-trained embeddings** significantly improves model performance.  
 
+## 📁 Repository Structure  
+├── dataset/ # Processed dataset files ├── models/ # Trained models saved ├── src/ │ ├── preprocess.py # Data cleaning and preprocessing │ ├── train_lstm.py # LSTM model training │ ├── train_gru.py # GRU model training │ ├── train_bert.py # BERT model fine-tuning │ ├── train_distilbert.py # DistilBERT fine-tuning │ ├── evaluate.py # Model evaluation script ├── notebooks/ # Jupyter notebooks for experiment tracking ├── results/ # Logs and metrics ├── README.md # Project documentation
 
+## 📌 How to Run  
+
+### 1️⃣ Install Dependencies  
+```bash
+pip install -r requirements.txt
+python src/preprocess.py
+python src/train_lstm.py
+python src/train_distilbert.py
+python src/evaluate.py --model distilbert
+🎯 Future Work
+Extend dataset with multilingual hate speech detection.
+Deploy model as an API using FastAPI or Flask.
+Implement model distillation for efficient mobile deployment.
+🔗 Contributions to Open Source
+We welcome contributions! You can:
+
+Improve model training scripts.
+Add more evaluation metrics.
+Experiment with other architectures (e.g., RoBERTa, T5).
